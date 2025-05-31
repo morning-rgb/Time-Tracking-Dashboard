@@ -1,9 +1,11 @@
-function App() {
+import TimeTrackingDashboard from "./components/TimeTrackingDashboard"
+import styles from "./App.module.scss"
 
+function App() {
   return (
-    <div>
-      
-    </div>
+    <main className={styles.page}>
+      <TimeTrackingDashboard />
+    </main>
   )
 }
 

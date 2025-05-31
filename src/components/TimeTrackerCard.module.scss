@@ -1,0 +1,174 @@
+@use 'sass:math';
+
+.timeTrackerCard {
+    min-height: rem(160px);
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: rem(15px) rem(15px) rem(50px) rem(50px);
+    
+    background-repeat: no-repeat;
+
+    animation: appearAnimation ease-out;
+    animation-delay: 0.2s;
+
+    @include tablet {
+        min-height: rem(200px);
+    }
+
+    @include desktop {
+        height: 100%;
+        width: rem(255px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes appearAnimation {
+    0% {
+        transform: translate(0px, rem(-16px));
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+}
+
+.timeTrackerInfo {
+    margin-top: auto;
+    padding: rem(28px) rem(24px);
+    border-radius: rem(15px);
+
+    background-color: var(--navy);
+
+    display: grid;
+    grid-template-areas:
+    "title settings"
+    "hours previousHours";
+
+    row-gap: rem(6px);
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+
+    @include desktop {
+        padding: rem(28px) rem(30px) rem(32px) rem(33px);
+        grid-template-areas: 
+        "title settings"
+        "hours hours"
+        "previousHours previousHours";
+    }
+
+    @include hover {
+        background-color: var(--dark-blue-purple);
+    }
+}
+
+.title {
+    grid-area: title;
+    color: var(--white);
+    font-weight: 500;
+    font-size: rem(18px);
+}
+
+.hours {
+    grid-area: hours;
+    font-size: rem(32px);
+
+    @include desktop {
+        margin-top: rem(20px);
+        font-size: rem(56px);
+    }
+}
+
+.previousHours {
+    grid-area: previousHours;
+    margin-left: auto;
+    margin-block: auto;
+
+    @include desktop {
+        margin: 0px;
+    }
+}
+
+.settings {
+    grid-area: settings;
+    margin-left: auto;
+
+    width: rem(21px);
+    height: rem(21px);
+
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+
+    background-color: var(--light-navy);
+
+    mask-image: url(/Time-Tracking-Dashboard/images/icon-ellipsis.svg);
+    mask-repeat: no-repeat;
+    mask-position: 0% rem(9px);
+
+    transition: background-color 0.2s;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+
+    @include hover {
+        background-color: var(--white);
+    }
+}
+
+.Work {
+    background-color: var(--orange);
+    background-image: url(/Time-Tracking-Dashboard/images/icon-work.svg);
+    background-position: right rem(17px) top rem(-11px);
+    animation-duration: #{math.random($limit: 2)}s;
+}
+
+.Play {
+    background-color: var(--blue);
+    background-image: url(/Time-Tracking-Dashboard/images/icon-play.svg);
+    background-position: right rem(21px) top rem(-5px);
+    animation-duration: #{math.random($limit: 2)}s;
+}
+
+.Study {
+    background-color: var(--pink);
+    background-image: url(/Time-Tracking-Dashboard/images/icon-study.svg);
+    background-position: right rem(17px) top rem(-8px);
+    animation-duration: #{math.random($limit: 2)}s;
+}
+
+.Exercise {
+    background-color: var(--green);
+    background-image: url(/Time-Tracking-Dashboard/images/icon-exercise.svg);
+    background-position: right rem(17px) top rem(-1px);
+    animation-duration: #{math.random($limit: 2)}s;
+}
+
+.Social {
+    background-color: var(--purple);
+    background-image: url(/Time-Tracking-Dashboard/images/icon-social.svg);
+    background-position: right rem(13px) top rem(-15px);
+    animation-duration: #{math.random($limit: 2)}s;
+}
+
+.SelfCare {
+    background-color: var(--yellow);
+    background-image: url(/Time-Tracking-Dashboard/images/icon-self-care.svg);
+    background-position: right rem(15px) top rem(-15px);
+    animation-duration: #{math.random($limit: 2)}s;
+}

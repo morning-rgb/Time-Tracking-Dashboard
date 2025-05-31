@@ -1,0 +1,138 @@
+.profileCard {
+    background-color: var(--navy);
+    max-width: rem(400px);
+    width: 100%;
+
+    border-radius: rem(15px);
+
+    @include tablet {
+        max-width: none;
+        grid-column: 2 span;
+    }
+
+    @include desktop {
+        max-width: rem(255px);
+        grid-row: span 2;
+        min-height: rem(518px);
+        height: 100%;
+    }
+}
+
+.profileInfo {
+    background-color: var(--blue-purple);
+
+    border-radius: rem(15px);
+
+    padding: rem(34px) rem(29px) rem(81px) rem(32px);
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+    "profileImage preNameText"
+    "profileImage nameText";
+
+    column-gap: rem(17px);
+
+    @include tablet {
+        grid-template-rows: rem(35px) 1fr;
+        padding-bottom: rem(34px);
+    }
+
+    @include desktop {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.profileImage {
+    grid-area: profileImage;
+
+    width: rem(70px);
+    height: rem(70px);
+
+    border: 3px solid var(--white);
+    border-radius: rem(100px);
+
+    @include tablet {
+        width: rem(120px);
+        height: rem(120px);
+    }
+
+    @include desktop {
+        width: rem(84px);
+        height: rem(84px);
+    }
+}
+
+.preNameText {
+    grid-area: preNameText;
+
+    margin-top: rem(10px);
+    
+    @include desktop {
+        margin-left: rem(3px);
+        margin-top: rem(40px);
+    }
+}
+
+.nameText {
+    grid-area: nameText;
+
+    font-size: rem(24px);
+
+    @include desktop {
+        margin-left: rem(3px);
+        margin-top: rem(3px);
+        font-size: rem(40px);
+    }
+}
+
+.modesWrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    @include desktop {
+        flex-direction: column;
+        padding: rem(15.5px) rem(32px) rem(22.5px) rem(32px);
+    }
+}
+
+.switchModeButton {
+    width: 100%;
+    height: rem(70px);
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    font-size: rem(18px);
+    color: var(--light-blue-purple);
+
+    text-transform: capitalize;
+
+    cursor: pointer;
+
+    transition: color 0.2s;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
+
+    @include desktop {
+        width: calc(100% - rem(64px));
+        height: auto;
+        margin-block: rem(10.5px);
+        text-align: left;
+    }
+
+    @include hover {
+        color: var(--white);
+    }
+
+    &.isActive {
+        color: var(--white);
+    }
+}
